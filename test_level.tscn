@@ -16,31 +16,37 @@ tile_map_data = PackedByteArray("AADq//T/AAABAAEAAADq//X/AAABAAIAAADq//b/AAABAAI
 tile_set = ExtResource("1_gojnm")
 
 [node name="Light3" type="PointLight2D" parent="Environment"]
-visible = false
 position = Vector2(-48, -16)
 shadow_enabled = true
 texture = ExtResource("2_1c2mv")
+texture_scale = 0.7
+script = ExtResource("3_f7g2b")
+light_range = 0.1
 
 [node name="Light4" type="PointLight2D" parent="Environment"]
-visible = false
 position = Vector2(256, -16)
 shadow_enabled = true
 texture = ExtResource("2_1c2mv")
+texture_scale = 0.7
+script = ExtResource("3_f7g2b")
+light_range = 0.1
 
 [node name="Light1" type="PointLight2D" parent="Environment"]
 position = Vector2(-208, -16)
 shadow_enabled = true
 texture = ExtResource("2_1c2mv")
+texture_scale = 0.7
 script = ExtResource("3_f7g2b")
+light_range = 0.1
 
 [node name="Light2" type="PointLight2D" parent="Environment"]
-visible = false
 position = Vector2(-129, -17)
 shadow_enabled = true
 texture = ExtResource("2_1c2mv")
+texture_scale = 0.7
+script = ExtResource("3_f7g2b")
+light_range = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(82, -45)
 zoom = Vector2(1.5, 1.5)
-
-[connection signal="flicker_finished" from="Environment/Light1" to="Environment/Light1" method="_on_flicker_finished"]
