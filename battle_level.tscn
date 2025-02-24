@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://tvsqqibl4ar2"]
+[gd_scene load_steps=7 format=4 uid="uid://tvsqqibl4ar2"]
 
 [ext_resource type="PackedScene" uid="uid://cy23pa417mi8j" path="res://player.tscn" id="1_8umrl"]
 [ext_resource type="TileSet" uid="uid://c4kiggr1usb5" path="res://dungeon_tilemap.tres" id="1_klipl"]
+[ext_resource type="PackedScene" uid="uid://brypos4cne0uv" path="res://battle_ui.tscn" id="1_st2y3"]
 [ext_resource type="Texture2D" uid="uid://j2liiq4gx2bu" path="res://Assets/neutral_point_light.webp" id="2_6q1l7"]
 [ext_resource type="Script" uid="uid://cm8vwpui3sevg" path="res://light_flicker.gd" id="3_gn8ju"]
 [ext_resource type="PackedScene" uid="uid://bxksiev4bj6lm" path="res://pawn.tscn" id="4_gn8ju"]
@@ -38,7 +39,7 @@ script = ExtResource("3_gn8ju")
 light_range = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(182, -45)
+position = Vector2(193, -45)
 zoom = Vector2(3, 3)
 
 [node name="Pawn" parent="." instance=ExtResource("4_gn8ju")]
@@ -47,3 +48,10 @@ position = Vector2(288, -23)
 [node name="Player" parent="." instance=ExtResource("1_8umrl")]
 position = Vector2(114, -23)
 script = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Battle UI" parent="CanvasLayer" instance=ExtResource("1_st2y3")]
+top_level = true
+offset_right = -1152.0
+offset_bottom = -648.0

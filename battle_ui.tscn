@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://brypos4cne0uv"]
+
+[ext_resource type="Theme" uid="uid://d0am0ptnr5dac" path="res://UI_Theme.tres" id="1_qyamm"]
+
+[node name="Battle UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 197.0
+offset_bottom = 62.0
+theme = ExtResource("1_qyamm")
+
+[node name="Attack" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Defend" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Defend"
+
+[node name="Item" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Item"
