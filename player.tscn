@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy23pa417mi8j"]
+[gd_scene load_steps=4 format=3 uid="uid://cy23pa417mi8j"]
 
 [ext_resource type="Texture2D" uid="uid://dcfrdd0v3r5l6" path="res://Assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cd4c36rhbxise" path="res://player.gd" id="1_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(11, 18)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4flbx")
