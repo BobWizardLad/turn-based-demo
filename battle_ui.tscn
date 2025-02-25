@@ -1,31 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://brypos4cne0uv"]
+[gd_scene load_steps=3 format=3 uid="uid://brypos4cne0uv"]
 
+[ext_resource type="Script" uid="uid://dgv3lpspk0rte" path="res://battle_ui.gd" id="1_kf0y4"]
 [ext_resource type="Theme" uid="uid://d0am0ptnr5dac" path="res://UI_Theme.tres" id="1_qyamm"]
 
-[node name="Battle UI" type="Control"]
+[node name="Battle UI" type="Control" node_paths=PackedStringArray("root_layer", "attack_layer", "attack_button", "defend_button", "item_button", "basic_attack", "special_attack", "throw_item")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kf0y4")
+root_layer = NodePath("Menu Layers/Layer0")
+attack_layer = NodePath("Menu Layers/Attack")
+attack_button = NodePath("Menu Layers/Layer0/Attack")
+defend_button = NodePath("Menu Layers/Layer0/Defend")
+item_button = NodePath("Menu Layers/Layer0/Item")
+basic_attack = NodePath("Menu Layers/Attack/BasicAttack")
+special_attack = NodePath("Menu Layers/Attack/SpecialAttack")
+throw_item = NodePath("Menu Layers/Attack/ThrowItem")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 22.0
-offset_top = 22.0
-offset_right = 197.0
-offset_bottom = 62.0
+[node name="Menu Layers" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Layer0" type="HBoxContainer" parent="Menu Layers"]
+layout_mode = 2
 theme = ExtResource("1_qyamm")
 
-[node name="Attack" type="Button" parent="HBoxContainer"]
+[node name="Attack" type="Button" parent="Menu Layers/Layer0"]
 layout_mode = 2
 text = "Attack"
 
-[node name="Defend" type="Button" parent="HBoxContainer"]
+[node name="Defend" type="Button" parent="Menu Layers/Layer0"]
 layout_mode = 2
 text = "Defend"
 
-[node name="Item" type="Button" parent="HBoxContainer"]
+[node name="Item" type="Button" parent="Menu Layers/Layer0"]
 layout_mode = 2
 text = "Item"
+
+[node name="Attack" type="HBoxContainer" parent="Menu Layers"]
+layout_mode = 2
+theme = ExtResource("1_qyamm")
+
+[node name="BasicAttack" type="Button" parent="Menu Layers/Attack"]
+layout_mode = 2
+text = "Basic"
+
+[node name="SpecialAttack" type="Button" parent="Menu Layers/Attack"]
+layout_mode = 2
+text = "Special"
+
+[node name="ThrowItem" type="Button" parent="Menu Layers/Attack"]
+layout_mode = 2
+text = "Throw Item"
+
+[connection signal="pressed" from="Menu Layers/Layer0/Attack" to="." method="_on_attack_pressed"]
