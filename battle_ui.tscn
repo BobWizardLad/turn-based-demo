@@ -1,9 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://brypos4cne0uv"]
+[gd_scene load_steps=6 format=3 uid="uid://brypos4cne0uv"]
 
 [ext_resource type="Script" uid="uid://dgv3lpspk0rte" path="res://battle_ui.gd" id="1_kf0y4"]
 [ext_resource type="Theme" uid="uid://d0am0ptnr5dac" path="res://UI_Theme.tres" id="1_qyamm"]
 
-[node name="Battle UI" type="Control" node_paths=PackedStringArray("root_layer", "attack_layer", "attack_button", "defend_button", "item_button", "basic_attack", "special_attack", "throw_item")]
+[sub_resource type="Animation" id="Animation_kf0y4"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu Layers:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-400, 30), Vector2(30, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_ilr4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu Layers:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4rna"]
+_data = {
+&"RESET": SubResource("Animation_ilr4f"),
+&"fade_in": SubResource("Animation_kf0y4")
+}
+
+[node name="Battle UI" type="Control" node_paths=PackedStringArray("animation_player", "root_layer", "attack_layer", "attack_button", "defend_button", "item_button", "basic_attack", "special_attack", "throw_item")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kf0y4")
+animation_player = NodePath("AnimationPlayer")
 root_layer = NodePath("Menu Layers/Layer0")
 attack_layer = NodePath("Menu Layers/Attack")
 attack_button = NodePath("Menu Layers/Layer0/Attack")
@@ -20,10 +57,17 @@ basic_attack = NodePath("Menu Layers/Attack/BasicAttack")
 special_attack = NodePath("Menu Layers/Attack/SpecialAttack")
 throw_item = NodePath("Menu Layers/Attack/ThrowItem")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j4rna")
+}
+
 [node name="Menu Layers" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -400.0
+offset_top = 30.0
+offset_right = -183.0
+offset_bottom = 96.0
 
 [node name="Layer0" type="HBoxContainer" parent="Menu Layers"]
 layout_mode = 2

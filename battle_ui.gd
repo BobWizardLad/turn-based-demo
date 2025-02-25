@@ -1,4 +1,5 @@
 extends Control
+@export var animation_player: AnimationPlayer
 
 @export var root_layer: HBoxContainer
 @export var attack_layer: HBoxContainer
@@ -12,12 +13,15 @@ extends Control
 @export var throw_item: Button
 
 func _ready() -> void:
-	attack_layer.hide()
-	root_layer.hide()
 	reveal_menu() # Play the animation to reveal menu
 
+## Calls the animation to reveal the attack menu, will call other 
+## functions important to the menu boot.
 func reveal_menu() -> void:
-	root_layer.show()
+	attack_layer.hide()
+	root_layer.hide()
+	root_layer.show() # reveal menu anim call sometime =)
+	animation_player.play("fade_in")
 
 func _on_attack_pressed() -> void:
 	attack_layer.show()
