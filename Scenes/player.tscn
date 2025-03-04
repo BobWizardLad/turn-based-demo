@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy23pa417mi8j"]
 
-[ext_resource type="Texture2D" uid="uid://dcfrdd0v3r5l6" path="res://Assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://chfpoulkip3es" path="res://Assets/Sprites/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cd4c36rhbxise" path="res://Scripts/player.gd" id="1_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://bt42n18lce8ob"]
 
 [ext_resource type="TileSet" uid="uid://c4kiggr1usb5" path="res://Resources/dungeon_tilemap.tres" id="1_gojnm"]
-[ext_resource type="Texture2D" uid="uid://j2liiq4gx2bu" path="res://Assets/neutral_point_light.webp" id="2_1c2mv"]
+[ext_resource type="Texture2D" path="res://Assets/neutral_point_light.webp" id="2_1c2mv"]
 [ext_resource type="Script" uid="uid://cm8vwpui3sevg" path="res://Scripts/light_flicker.gd" id="3_f7g2b"]
 [ext_resource type="PackedScene" uid="uid://cy23pa417mi8j" path="res://Scenes/player.tscn" id="4_4ptq8"]
 

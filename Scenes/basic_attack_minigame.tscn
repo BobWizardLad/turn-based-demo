@@ -1,7 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbg8ut3jjxo5r"]
+[gd_scene load_steps=17 format=3 uid="uid://cbg8ut3jjxo5r"]
 
 [ext_resource type="Script" uid="uid://jx1l75j7mol2" path="res://Scripts/basic_attack_minigame.gd" id="1_tituk"]
-[ext_resource type="Texture2D" uid="uid://dxew8vw1fjeut" path="res://Assets/16x16 Assorted RPG Icons/weapons.png" id="2_rilju"]
+[ext_resource type="Texture2D" uid="uid://dxew8vw1fjeut" path="res://Assets/Sprites/16x16 Assorted RPG Icons/weapons.png" id="2_rilju"]
+[ext_resource type="AudioStream" uid="uid://lemdgw51fln7" path="res://Assets/SFX/RPG_Essentials_Free/10_Battle_SFX/35_Miss_Evade_02.wav" id="2_unlr8"]
+[ext_resource type="AudioStream" uid="uid://bl3u5ee18yarq" path="res://Assets/SFX/RPG_Essentials_Free/10_Battle_SFX/22_Slash_04.wav" id="3_8v044"]
+
+[sub_resource type="Animation" id="Animation_kahk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bar/Pointer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_rilju"]
 resource_name = "pointer_move"
@@ -17,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(4, 1),
 "update": 0,
 "values": [Vector2(-386, 0), Vector2(386, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kahk0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bar/Pointer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_unlr8"]
@@ -69,12 +71,18 @@ atlas = ExtResource("2_rilju")
 region = Rect2(32, 64, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rilju"]
-size = Vector2(128, 64)
+size = Vector2(36, 64)
 
-[node name="BasicAttackMinigame" type="Node2D" node_paths=PackedStringArray("pointer_area", "success_area")]
+[node name="BasicAttackMinigame" type="Node2D" node_paths=PackedStringArray("pointer_area", "success_area", "audio_stream", "anim_player")]
 script = ExtResource("1_tituk")
 pointer_area = NodePath("Bar/Pointer")
 success_area = NodePath("Bar/Success")
+audio_stream = NodePath("AudioStreamPlayer")
+whiff = ExtResource("2_unlr8")
+hit = ExtResource("3_8v044")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -83,7 +91,6 @@ libraries = {
 autoplay = "pointer_move"
 
 [node name="Bar" type="Sprite2D" parent="."]
-position = Vector2(568, 346)
 texture = SubResource("GradientTexture2D_kahk0")
 metadata/_edit_group_ = true
 
@@ -98,6 +105,8 @@ shape = SubResource("RectangleShape2D_unlr8")
 [node name="Pointer" type="Area2D" parent="Bar"]
 
 [node name="Bar" type="Sprite2D" parent="Bar/Pointer"]
+position = Vector2(-0.500002, 0)
+scale = Vector2(0.289063, 1)
 texture = SubResource("GradientTexture2D_unlr8")
 
 [node name="Icon" type="Sprite2D" parent="Bar/Pointer"]

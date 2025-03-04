@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://stjbo1ucljdp"]
 
 [ext_resource type="Script" uid="uid://xtabxarj30b8" path="res://Scripts/battle_pawn.gd" id="1_coc0b"]
-[ext_resource type="Texture2D" uid="uid://dar64hbm52fop" path="res://Assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Idle.png" id="2_0xolc"]
+[ext_resource type="Texture2D" path="res://Assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Idle.png" id="2_0xolc"]
 
 [node name="BattlePawn" type="Node2D"]
 script = ExtResource("1_coc0b")

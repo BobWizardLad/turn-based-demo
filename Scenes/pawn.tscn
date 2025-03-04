@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxksiev4bj6lm"]
 
-[ext_resource type="Texture2D" uid="uid://o8x55eewk25f" path="res://Assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc/Orc/Orc-Idle.png" id="1_f14ny"]
+[ext_resource type="Texture2D" uid="uid://dar64hbm52fop" path="res://Assets/Sprites/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Idle.png" id="1_eu7ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6oh4"]
 size = Vector2(13, 16)
@@ -12,7 +12,7 @@ position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_o6oh4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_f14ny")
+texture = ExtResource("1_eu7ni")
 flip_h = true
 hframes = 6
 
