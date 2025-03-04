@@ -25,3 +25,7 @@ func reveal_menu() -> void:
 
 func _on_attack_pressed() -> void:
 	attack_layer.show()
+
+## Launch the attack minigame
+func _on_basic_attack_pressed() -> void:
+	pass # Replace with function body.

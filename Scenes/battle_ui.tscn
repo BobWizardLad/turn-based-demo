@@ -100,3 +100,4 @@ layout_mode = 2
 text = "Throw Item"
 
 [connection signal="pressed" from="Menu Layers/Layer0/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Menu Layers/Attack/BasicAttack" to="." method="_on_basic_attack_pressed"]
